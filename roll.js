@@ -1,8 +1,11 @@
-const prompt = require('prompt-sync')();
+const rl = require("readline-sync");
+
+const rolls = []
 
 class Roll {
+
   roll() {
-    let current_roll = prompt('please roll: ');
+    let current_roll = rl.question('please roll: ');
     if (Number(current_roll) > 10) {
       console.log('there are only 10 pins, try again');
       this.roll();
@@ -10,12 +13,8 @@ class Roll {
       return current_roll
     }
   }
+
 }
 
-let rolls = []
-
-roll = new Roll();
-roll.roll()
-
-module.exports = Roll;
+module.exports.Roll = Roll;
 module.exports.rolls = rolls;
