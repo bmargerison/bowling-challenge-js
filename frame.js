@@ -42,10 +42,5 @@ class Frame {
 
 }
 
-module.exports = Frame;
-
-frame = new Frame();
-frame.run_frame();
-console.log(frames);
-console.log(frame.rolls);
-console.log(rolls);
+module.exports.Frame = Frame;
+module.exports.frames = frames;
