@@ -19,8 +19,9 @@ class Game {
       frames.push(frame);
       console.log(frames)
       console.log(rolls)
+      this.scorecard.current_score()
     }
-
+    this.scorecard.final_score();
   }
 }
 

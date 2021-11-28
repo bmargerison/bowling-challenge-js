@@ -12,7 +12,10 @@ class Frame {
   run_frame() {
     this.rolls.push(this.first_roll());
     frames.length != 9 && parseInt(this.rolls[0]) === 10 ? undefined : this.rolls.push(this.second_roll());
-    frames.length === 9 && this.rolls.reduce((sum, a) => sum + a, 0) ? this.rolls.push(this.third_roll()) : undefined;
+    frames.length === 9 && this.rolls.reduce((sum, a) => sum + parseInt(a), 0) ? this.rolls.push(this.third_roll()) : undefined;
+    for (const roll of this.rolls) {
+      rolls.push(roll)
+    }
   }
 
   first_roll() {
@@ -25,7 +28,7 @@ class Frame {
     console.log('second roll');
     let roll = new Roll().roll();
     parseInt(roll) + parseInt(this.rolls[0]) === 10 ? console.log('Spare') : undefined;
-    if (parseInt(roll) + parseInt(this.rolls[0]) > 10) {
+    if (parseInt(roll) + parseInt(this.rolls[0]) > 10 && frames.length != 9) {
       console.log('sum of both rolls is greater than 10. play second roll again');
       this.second_roll();
     }
