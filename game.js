@@ -1,6 +1,5 @@
 const rl = require('readline-sync');
 const { Frame, frames } = require('./frame');
-const { Roll, rolls } = require('./roll');
 const Scorecard = require('./scorecard');
 
 class Game {
@@ -15,10 +14,8 @@ class Game {
     for (let i = 0; i < 10; i++) {
       console.log(`frame ${i+1}`);
       let frame = new Frame();
-      frame.run_frame();
+      i === 9 ? frame.run_final_frame() : frame.run_frame();
       frames.push(frame);
-      console.log(frames)
-      console.log(rolls)
       this.scorecard.current_score()
     }
     this.scorecard.final_score();
